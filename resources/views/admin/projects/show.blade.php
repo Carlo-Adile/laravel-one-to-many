@@ -13,6 +13,9 @@
 		<div class="container">
 			<img src="{{ $project->cover_image }}" alt="{{ $project->title }}" width="240">
 			<p>{{ $project->content }}</p>
+			<div class="metadata">
+				<strong>Type</strong> {{$project->type ? $project->type->name : 'no type selected'}}
+			</div>
 		</div>
 	</section>
 @endsection

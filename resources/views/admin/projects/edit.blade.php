@@ -42,6 +42,16 @@
 			</div>
 
 			<div class="mb-3">
+				<label for="category_id" class="form-label">Type</label>
+				<select class="form-select form-select-lg" name="type_id" id="type_id">
+					<option selected disabled>Select a type</option>
+					@foreach ($types as $type)
+						<option value="{{ $type->id }}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{ $type->name }}</option>
+					@endforeach
+				</select>
+			</div>
+
+			<div class="mb-3">
 				<label for="content" class="form-label">Content</label>
 				<textarea type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content"
 				 aria-describedby="helpId" placeholder="" rows="5">{{ old('content', $project->content) }}</textarea>
@@ -52,6 +62,7 @@
 					</div>
 				@enderror
 			</div>
+
 			<button type="submit" class="btn btn-primary">
 				Save
 			</button>
